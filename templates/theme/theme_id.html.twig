@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du Thème{% endblock %}
+
+{% block body %}
+    <h1>Détails du Thème</h1>
+    <p>Thème: {{ theme.theme }}</p>
+    <p>Nombre de places gagnants: {{ theme.nombrePlacesGagnantes }}</p>
+
+    <h2>Listes des propositions</h2>
+
+    {% for proposition in theme.proposition %}
+        <li>
+            {{ proposition.nom }}
+        </li>
+    {% endfor %}
+
+    <a href="{{ path('app_bulletin', {'id': theme.id}) }}">Sélectionner des propositions</a>
+{% endblock %}

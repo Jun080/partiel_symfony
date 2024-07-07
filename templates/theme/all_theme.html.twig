@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Thèmes{% endblock %}
+
+{% block body %}
+    <h1>Liste des Thèmes</h1>
+
+    <ul>
+        {% for theme in themes %}
+            <li><a href="{{ path('theme_id', {'id': theme.id}) }}">{{ theme.theme }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ path('theme_crea') }}">Créer un thème</a>
+{% endblock %}

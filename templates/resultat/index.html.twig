@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultat{% endblock %}
+
+{% block body %}
+    <h1>Résultat de l'élection</h1>
+    <ul>
+        {% if winners is defined %}
+            {% for winner in winners %}
+                <li>{{ winner }}</li>
+            {% endfor %}
+        {% else %}
+            <li>Aucun résultat disponible</li>
+        {% endif %}
+    </ul>
+{% endblock %}

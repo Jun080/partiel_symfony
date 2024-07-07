@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sélection des Propositions{% endblock %}
+
+{% block body %}
+    <h1>Sélection des Propositions</h1>
+    <form method="post" action="{{ path('handle_selection', {'id': theme.id}) }}">
+        {% for place in range(1, theme.nombrePlacesGagnantes) %}
+            <label for="select-place-{{ place }}">Place {{ place }}</label>
+            <select id="select-place-{{ place }}" name="selected_propositions[]">
+                {% for proposition in theme.proposition %}
+                    <option value="{{ proposition.id }}">{{ proposition.nom }}</option>
+                {% endfor %}
+            </select><br><br>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+{% endblock %}
